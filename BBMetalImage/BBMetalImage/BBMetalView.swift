@@ -8,7 +8,7 @@
 
 import MetalKit
 
-open class BBMetalView: MTKView {
+open class BBMetalView: MTKView, BBMetalImageConsumer {
     public enum TextureRotation {
         case rotate0Degrees
         case rotate90Degrees
@@ -164,13 +164,11 @@ open class BBMetalView: MTKView {
         
         commandBuffer.commit()
     }
-}
 
-extension BBMetalView: BBMetalImageConsumer {
     public func add(source: BBMetalImageSource) {}
     public func remove(source: BBMetalImageSource) {}
     
-    public func newTextureAvailable(_ texture: BBMetalTexture, from source: BBMetalImageSource) {
+    open func newTextureAvailable(_ texture: BBMetalTexture, from source: BBMetalImageSource) {
         lock.wait()
         self.texture = texture.metalTexture
         tempFrontCamera = (texture.cameraPosition == .front)
