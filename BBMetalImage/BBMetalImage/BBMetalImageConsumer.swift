@@ -52,7 +52,7 @@ public protocol BBMetalAudioConsumer: AnyObject {
     func newAudioSampleBufferAvailable(_ sampleBuffer: CMSampleBuffer)
 }
 
-struct BBMetalDefaultTexture: BBMetalTexture {
+public struct BBMetalDefaultTexture: BBMetalTexture {
     public var metalTexture: MTLTexture
     public let sampleTime: CMTime?
     public let cameraPosition: AVCaptureDevice.Position?
