@@ -8,7 +8,7 @@
 
 import MetalKit
 
-public class BBMetalView: MTKView {
+open class BBMetalView: MTKView {
     public enum TextureRotation {
         case rotate0Degrees
         case rotate90Degrees

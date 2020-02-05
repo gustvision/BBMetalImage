@@ -53,12 +53,12 @@ public protocol BBMetalAudioConsumer: AnyObject {
 }
 
 struct BBMetalDefaultTexture: BBMetalTexture {
-    var metalTexture: MTLTexture
-    let sampleTime: CMTime?
-    let cameraPosition: AVCaptureDevice.Position?
+    public var metalTexture: MTLTexture
+    public let sampleTime: CMTime?
+    public let cameraPosition: AVCaptureDevice.Position?
     let cvMetalTexture: CVMetalTexture? // Hold CVMetalTexture to prevent stuttering. https://stackoverflow.com/questions/43550769/holding-onto-a-mtltexture-from-a-cvimagebuffer-causes-stuttering
     
-    init(metalTexture: MTLTexture,
+    public init(metalTexture: MTLTexture,
          sampleTime: CMTime? = nil,
          cameraPosition: AVCaptureDevice.Position? = nil,
          cvMetalTexture: CVMetalTexture? = nil) {
@@ -69,9 +69,14 @@ struct BBMetalDefaultTexture: BBMetalTexture {
     }
 }
 
-struct BBMetalVideoTextureItem {
-    let metalTexture: MTLTexture
-    let cvMetalTexture: CVMetalTexture
+public struct BBMetalVideoTextureItem {
+    public let metalTexture: MTLTexture
+    public let cvMetalTexture: CVMetalTexture
+
+    public init(metalTexture: MTLTexture, cvMetalTexture: CVMetalTexture) {
+        self.metalTexture = metalTexture
+        self.cvMetalTexture = cvMetalTexture
+    }
 }
 
 // For simulator compile
