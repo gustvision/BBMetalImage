@@ -122,7 +122,7 @@ open class BBMetalView: MTKView {
         super.isPaused = true
     }
     
-    required init(coder: NSCoder) {
+    public required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
