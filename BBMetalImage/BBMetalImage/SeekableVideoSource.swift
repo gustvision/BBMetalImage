@@ -28,6 +28,23 @@ public class SeekableVideoSource {
     private var videoOutput: AVPlayerItemVideoOutput!
     private var displayLink: CADisplayLink!
     private var textureCache: CVMetalTextureCache!
+    public var assetOrientation: BBMetalView.TextureRotation? {
+        func radiansToDegrees(_ radians: Float) -> CGFloat {
+            return CGFloat(radians * 180.0 / Float.pi)
+        }
+        guard let firstVideoTrack = self.asset.tracks(withMediaType: .video).first else {
+            return nil
+        }
+        let transform = firstVideoTrack.preferredTransform
+        let videoAngleInDegree = radiansToDegrees(atan2f(Float(transform.b), Float(transform.a)))
+        switch Int(videoAngleInDegree) {
+        case 0: return .rotate0Degrees
+        case 90: return .rotate90Degrees
+        case 180: return .rotate180Degrees
+        case -90: return .rotate270Degrees
+        default: return nil
+        }
+    }
     
     public init?(url: URL) {
         _consumers = []
