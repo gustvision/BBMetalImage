@@ -32,7 +32,7 @@ public class BBMetalVideoWriter {
     private var threadgroupCount: MTLSize
     
     private var writer: AVAssetWriter!
-    private var videoInput: AVAssetWriterInput!
+    internal var videoInput: AVAssetWriterInput!
     private var videoPixelBufferInput: AVAssetWriterInputPixelBufferAdaptor!
     private var videoPixelBuffer: CVPixelBuffer!
     

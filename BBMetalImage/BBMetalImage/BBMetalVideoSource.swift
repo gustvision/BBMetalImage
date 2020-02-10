@@ -20,17 +20,17 @@ public class BBMetalVideoSource {
         lock.signal()
         return c
     }
-    private var _consumers: [BBMetalImageConsumer]
+    internal var _consumers: [BBMetalImageConsumer]
     
-    private let url: URL
-    private let lock: DispatchSemaphore
+    internal let url: URL
+    internal let lock: DispatchSemaphore
     
-    private var asset: AVAsset!
-    private var assetReader: AVAssetReader!
-    private var videoOutput: AVAssetReaderTrackOutput!
+    internal var asset: AVAsset!
+    internal var assetReader: AVAssetReader!
+    internal var videoOutput: AVAssetReaderTrackOutput!
     
-    private var audioOutput: AVAssetReaderTrackOutput!
-    private var lastAudioBuffer: CMSampleBuffer?
+    internal var audioOutput: AVAssetReaderTrackOutput!
+    internal var lastAudioBuffer: CMSampleBuffer?
     
     /// Audio consumer processing audio sample buffer.
     /// Set this property to nil (default value) if not processing audio.
@@ -48,7 +48,7 @@ public class BBMetalVideoSource {
             lock.signal()
         }
     }
-    private var _audioConsumer: BBMetalAudioConsumer?
+    internal var _audioConsumer: BBMetalAudioConsumer?
     
     /// Whether to process video with the actual rate. False by default, meaning the processing speed is faster than the actual video rate.
     public var playWithVideoRate: Bool {
@@ -171,13 +171,13 @@ public class BBMetalVideoSource {
         lock.signal()
     }
     
-    private func safeReset() {
+    internal func safeReset() {
         lock.wait()
         reset()
         lock.signal()
     }
     
-    private func reset() {
+    internal func reset() {
         asset = nil
         assetReader = nil
         videoOutput = nil
@@ -185,7 +185,7 @@ public class BBMetalVideoSource {
         lastAudioBuffer = nil
     }
     
-    private func prepareAssetReader() -> Bool {
+    internal func prepareAssetReader() -> Bool {
         guard let reader = try? AVAssetReader(asset: asset),
             let videoTrack = asset.tracks(withMediaType: .video).first else { return false }
         assetReader = reader
@@ -315,7 +315,7 @@ public class BBMetalVideoSource {
         completion?(finish)
     }
     
-    private func texture(with sampleBuffer: CMSampleBuffer) -> BBMetalVideoTextureItem? {
+    internal func texture(with sampleBuffer: CMSampleBuffer) -> BBMetalVideoTextureItem? {
         guard let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return nil }
         let width = CVPixelBufferGetWidth(imageBuffer)
         let height = CVPixelBufferGetHeight(imageBuffer)
