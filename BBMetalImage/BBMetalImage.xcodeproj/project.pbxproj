@@ -355,6 +355,7 @@
 		4AFD9C67225EF4780000C839 /* BBMetalThresholdSketchFilter.metal in Sources */ = {isa = PBXBuildFile; fileRef = 4AFD9C65225EF4780000C839 /* BBMetalThresholdSketchFilter.metal */; };
 		D9EFDEAF23F191A9009047E8 /* PokableVideoSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EFDEAE23F191A9009047E8 /* PokableVideoSource.swift */; };
 		D9EFDEB123F192E8009047E8 /* PokingVideoWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EFDEB023F192E8009047E8 /* PokingVideoWriter.swift */; };
+		D9EFDEB323F1A3B5009047E8 /* SeekableVideoSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EFDEB223F1A3B5009047E8 /* SeekableVideoSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -549,6 +550,7 @@
 		4AFD9C65225EF4780000C839 /* BBMetalThresholdSketchFilter.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = BBMetalThresholdSketchFilter.metal; sourceTree = "<group>"; };
 		D9EFDEAE23F191A9009047E8 /* PokableVideoSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokableVideoSource.swift; sourceTree = "<group>"; };
 		D9EFDEB023F192E8009047E8 /* PokingVideoWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokingVideoWriter.swift; sourceTree = "<group>"; };
+		D9EFDEB223F1A3B5009047E8 /* SeekableVideoSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeekableVideoSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -768,6 +770,7 @@
 				4A4CAD8C225285E60058BEB6 /* Info.plist */,
 				D9EFDEAE23F191A9009047E8 /* PokableVideoSource.swift */,
 				D9EFDEB023F192E8009047E8 /* PokingVideoWriter.swift */,
+				D9EFDEB223F1A3B5009047E8 /* SeekableVideoSource.swift */,
 			);
 			path = BBMetalImage;
 			sourceTree = "<group>";
@@ -894,6 +897,7 @@
 				4AC5795022552E6000F7BCAC /* BBMetalContrastFilter.metal in Sources */,
 				4A68355622571F6E0089872B /* BBMetalGaussianBlurFilter.swift in Sources */,
 				4A2730DB225856D8002F90F4 /* BBMetalLightenBlendFilter.metal in Sources */,
+				D9EFDEB323F1A3B5009047E8 /* SeekableVideoSource.swift in Sources */,
 				4A2730FC22586344002F90F4 /* BBMetalHardLightBlendFilter.swift in Sources */,
 				4AFB017722DFAC54004278DF /* BBMetalSobelEdgeDetectionFilter.metal in Sources */,
 				4AFC467D2254358E009D37A1 /* BBMetalExposureFilter.metal in Sources */,
