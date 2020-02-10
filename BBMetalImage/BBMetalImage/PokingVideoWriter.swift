@@ -13,7 +13,7 @@ final public class PokingVideoWriter: BBMetalVideoWriter {
     private var videoInputQueue: DispatchQueue!
     public var pokeBlock: (() -> Void)?
 
-    override init(
+    override public init(
             url: URL
         ,   frameSize: BBMetalIntSize
         ,   fileType: AVFileType = .mp4
