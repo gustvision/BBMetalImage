@@ -24,12 +24,12 @@ import AVFoundation
  *  Didn't inherit from BBMetalVideoSource, but copy pasted it
  */
 
-final class PokableVideoSource: BBMetalVideoSource {
+final public class PokableVideoSource: BBMetalVideoSource {
 
     private var progress: BBMetalVideoSourceProgress?
     private var completion: BBMetalVideoSourceCompletion?
 
-    override func start(progress: BBMetalVideoSourceProgress? = nil, completion: BBMetalVideoSourceCompletion? = nil) {
+    override public func start(progress: BBMetalVideoSourceProgress? = nil, completion: BBMetalVideoSourceCompletion? = nil) {
         self.progress = progress
         self.completion = completion
         lock.wait()

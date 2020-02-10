@@ -8,7 +8,7 @@
 
 import AVFoundation
 
-final class PokingVideoWriter: BBMetalVideoWriter {
+final public class PokingVideoWriter: BBMetalVideoWriter {
 
     private var videoInputQueue: DispatchQueue!
     public var pokeBlock: (() -> Void)?
@@ -29,7 +29,7 @@ final class PokingVideoWriter: BBMetalVideoWriter {
         }
     }
 
-    override func start(progress: BBMetalVideoWriterProgress? = nil) {
+    override public func start(progress: BBMetalVideoWriterProgress? = nil) {
         super.start(progress: progress)
         videoInputQueue = DispatchQueue(label: "videoInput")
         videoInput.requestMediaDataWhenReady(on: videoInputQueue, using: self.poke)
